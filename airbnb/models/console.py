@@ -16,11 +16,14 @@ class HBNBCommand(cmd.Cmd):
     file = None
 
     def do_help(self, arg):
-        print("""
-                Documented commands (type help <topic>):\n
-                ========================================\n
-                EOF  help  quit\n
+        if arg == 'quit' or arg == 'EOF':
+                print(console_colors.yellow + "Quit command to exit the program" + console_colors.end)
+        else:
+            print("""Documented commands (type help <topic>):
+                ========================================
+                EOF  help  quit
                 """)
+
     def do_EOF(self, arg):
         return True
     def do_quit(self, arg):
