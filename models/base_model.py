@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module: BaseModel """
+"""Module: BaseModel."""
 
 import uuid
 from datetime import datetime
@@ -8,8 +8,10 @@ import json
 
 
 class BaseModel:
-    """ Class BaseModel """
+    """Class BaseModel."""
+
     def __init__(self, *arg, **kwargs):
+        """Do constructor for instances."""
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == 'created_at':
@@ -27,17 +29,17 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """ str method """
+        """Str method."""    
         name = type(self).__name__
         return ('[{}] ({}) {}'.format(name, self.id, self.__dict__))
 
     def save(self):
-        """ Updates instance attribute updated_at with the current datetime """
+        """Update instance attribute updated_at with the current datetime."""
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """dictionary containing all keys/values of __dict__ of the instance"""
+        """Create dict containing all keys/values of __dict__ of ins."""
         c_dic = dict(self.__dict__)
         c_dic['__class__'] = type(self).__name__
         c_dic['created_at'] = self.created_at.isoformat()

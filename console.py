@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 import cmd
 import sys
-from airbnb.models import *
+import models
+
 
 class c_c:
-
-
     """Color class."""
+
     lightgray = '\033[37m'
     magenta = '\033[35m'
     blue = '\033[94m'
@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, arg):
-        BaseModel.storage.reload()
+        models.storage.reload()
         if len(arg) == 0:
             print("Enter a name")
             return
@@ -88,9 +88,9 @@ class HBNBCommand(cmd.Cmd):
             return
         elif len(arg_list) > 1:
             key = arg_list[0] + "." + arg_list[1]
-            if key in BaseModel.storage.all():
-                BaseModel.storage.all().pop(key)
-                BaseModel.storage.save()
+            if key in models.storage.all():
+                models.storage.all().pop(key)
+                models.storage.save()
             else:
                 print("Nothing found")
                 return
