@@ -3,7 +3,7 @@ import cmd
 import sys
 from airbnb.models import *
 
-class console_colors:
+class c_c:
     lightgray = '\033[37m'
     magenta = '\033[35m'
     blue = '\033[94m'
@@ -13,13 +13,13 @@ class console_colors:
     end = '\033[0m'
 
 class HBNBCommand(cmd.Cmd):
-    intro = console_colors.magenta + 'Welcome to \'hbnb\'.   Type help or ? to list commands.\n' + console_colors.end
-    prompt = console_colors.red + '(hbnh) ' + console_colors.end
+    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or ? to list commands.\n' + c_c.end
+    prompt = c_c.red + '(hbnh) ' + c_c.end
     file = None
 
     def do_help(self, arg):
         if arg == 'quit' or arg == 'EOF':
-                print(console_colors.yellow + "Quit command to exit the program" + console_colors.end)
+                print(c_c.yellow + "Quit command to exit the program" + c_c.end)
         else:
             print("""Documented commands (type help <topic>):
                 ========================================
