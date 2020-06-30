@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Module: BaseModel."""
 
-import uuid
 from datetime import datetime
+import uuid
 import models
 import json
 
