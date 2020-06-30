@@ -37,5 +37,5 @@ class FileStorage:
                 reload_dict = json.load(f)
             for key, value in reload_dict.items():
                 FileStorage.__objects[key] = eval(value['__class__'])(**value)
-        except:
+        except Exception:
             pass
