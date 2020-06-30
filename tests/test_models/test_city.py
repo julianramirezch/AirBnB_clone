@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 from models.city import City
 
 
-class TestCityRequirements(unittest.TestCase):
+class TestStaggeRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod

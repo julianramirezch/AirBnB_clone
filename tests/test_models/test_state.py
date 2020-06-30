@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 from models.state import State
 
 
-class TestStateRequirements(unittest.TestCase):
+class TestStaggeRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod

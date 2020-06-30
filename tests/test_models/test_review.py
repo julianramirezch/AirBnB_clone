@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 from models.review import Review
 
 
-class TestReviewRequirements(unittest.TestCase):
+class TestStaggeRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod

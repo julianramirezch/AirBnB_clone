@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 from models.amenity import Amenity
 
 
-class TestAmenityRequirements(unittest.TestCase):
+class TestStaggeRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod
