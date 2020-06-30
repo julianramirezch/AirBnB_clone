@@ -15,16 +15,16 @@ from models.state import State
 from models.user import User
 
 
-class c_c:
-    """Color class."""
+#class c_c:
+#    """Color class."""
 
-    lightgray = '\033[37m'
-    magenta = '\033[35m'
-    blue = '\033[94m'
-    green = '\033[92m'
-    yellow = '\033[93m'
-    red = '\033[91m'
-    end = '\033[0m'
+#    lightgray = '\033[37m'
+#    magenta = '\033[35m'
+#    blue = '\033[94m'
+#    green = '\033[92m'
+#    yellow = '\033[93m'
+#    red = '\033[91m'
+#    end = '\033[0m'
 
 
 class HBNBCommand(cmd.Cmd):
@@ -33,7 +33,8 @@ class HBNBCommand(cmd.Cmd):
 #    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or \
 # ? to list commands.\n' + c_c.end
 #    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
-    prompt = c_c.red + '(hbnb) ' + c_c.end
+#    prompt = c_c.red + '(hbnb) ' + c_c.end
+    prompt = '(hbnb) '
     file = None
 
     def do_EOF(self, line):
