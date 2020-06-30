@@ -5,8 +5,6 @@ import pep8
 import json
 from models.base_model import BaseModel
 from datetime import datetime
-import uuid
-import json
 
 
 class TestBaseModelRequirements(unittest.TestCase):
