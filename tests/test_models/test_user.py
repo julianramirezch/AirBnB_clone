@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-""" City unit testing """
+""" User unit testing """
 import unittest
 import pep8
 import json
 from models.base_model import BaseModel
-from models.city import City
+from models.user import User
 
 
-class TestCityRequirements(unittest.TestCase):
+class TestUserRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod
@@ -29,20 +29,20 @@ class TestCityRequirements(unittest.TestCase):
     def test_pep8(self):
         """ Test that models/base.py conforms to PEP8 """
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/city.py'])
+        result = pep8style.check_files(['models/user.py'])
         self.assertEqual(result.total_errors, 0, "Fix PEP8 Style")
 
     def test_pep8_base(self):
         """ Test the test file xD """
         pep8style = pep8.StyleGuide(quiet=True)
-        path_file = 'tests/test_models/test_city.py'
+        path_file = 'tests/test_models/test_user.py'
         result = pep8style.check_files([path_file])
         self.assertEqual(result.total_errors, 0, "Fix PEP8 Style")
 
     def test_docstring(self):
         """test if docstring"""
-        self.assertIsNotNone(City.__doc__)
+        self.assertIsNotNone(User.__doc__)
 
     def test_docmodule(self):
         """ Tests module """
-        self.assertTrue(len(City.__doc__) >= 1)
+        self.assertTrue(len(User.__doc__) >= 1)
