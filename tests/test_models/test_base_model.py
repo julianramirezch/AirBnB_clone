@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ BaseModel unit testing """
+from models.base_model import BaseModel
+from datetime import datetime
 import unittest
 import pep8
 import json
-from models.base_model import BaseModel
-from datetime import datetime
+import uuid
 
 
 class TestBaseModelRequirements(unittest.TestCase):
