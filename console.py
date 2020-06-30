@@ -4,6 +4,9 @@ import sys
 from airbnb.models import *
 
 class c_c:
+
+
+    """Color class."""
     lightgray = '\033[37m'
     magenta = '\033[35m'
     blue = '\033[94m'
