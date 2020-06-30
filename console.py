@@ -15,7 +15,7 @@ from models.state import State
 from models.user import User
 
 
-#class c_c:
+# class c_c:
 #    """Color class."""
 
 #    lightgray = '\033[37m'
