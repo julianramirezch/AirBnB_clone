@@ -29,7 +29,7 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """Str method."""    
+        """Str method."""
         name = type(self).__name__
         return ('[{}] ({}) {}'.format(name, self.id, self.__dict__))
 
