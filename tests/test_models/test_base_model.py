@@ -4,9 +4,12 @@ import unittest
 import pep8
 import json
 from models.base_model import BaseModel
+from datetime import datetime
+import uuid
+import json
 
 
-class TestBaseModelsRequirements(unittest.TestCase):
+class TestBaseModelRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod
@@ -34,7 +37,8 @@ class TestBaseModelsRequirements(unittest.TestCase):
     def test_pep8_base(self):
         """ Test the test file xD """
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_base_model.py'])
+        path_f = 'tests/test_models/test_base_model.py'
+        result = pep8style.check_files([path_f])
         self.assertEqual(result.total_errors, 0, "Fix PEP8 Style")
 
     def test_docstring(self):
