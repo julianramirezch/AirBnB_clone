@@ -49,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Create object."""
         if len(arg) == 0:
-            print("Please enter a further instruction")
+            print("** class name missing **")
             return
         arg_list = arg.split()
         try:
@@ -57,45 +57,45 @@ class HBNBCommand(cmd.Cmd):
             print(inst.id)
             inst.save()
         except Exception:
-            print("Not found")
+            print("** class doesn't exist **")
             return
 
     def do_show(self, arg):
         """Show object."""
         models.storage.reload()
         if len(arg) == 0:
-            print("Enter a name")
+            print("** class name missing **")
             return
         arg_list = arg.split()
         try:
             inst = eval(arg_list[0])
         except Exception:
-            print("Nothiing found")
+            print("** class doesn't exist **")
             return
         if len(arg_list) == 1:
-            print("Id not found")
+            print("** instance id missing **")
             return
         elif len(arg_list) > 1:
             key = arg_list[0] + "." + arg_list[1]
             if key in models.storage.all():
                 print(models.storage.all()[key])
             else:
-                print("Nothing found")
+                print("** no instance found **")
                 return
 
     def do_destroy(self, arg):
         """Destroy object."""
         if len(arg) == 0:
-            print("Further info required")
+            print("** class name missing **")
             return
         arg_list = arg.split()
         try:
             inst = eval(arg_list[0])
         except Exception:
-            print("Nothing found")
+            print("** class doesn't exist **")
             return
         if len(arg_list) == 1:
-            print("Id not found")
+            print("** instance id missing **")
             return
         elif len(arg_list) > 1:
             key = arg_list[0] + "." + arg_list[1]
@@ -103,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
                 models.storage.all().pop(key)
                 models.storage.save()
             else:
-                print("Nothing found")
+                print("** no instance found **")
                 return
 
 
