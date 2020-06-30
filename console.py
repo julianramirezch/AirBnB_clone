@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-import cmd, sys
+import cmd
+import sys
+from airbnb.models import *
 
 
 class console_colors:
@@ -31,6 +33,66 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         return True
+    
+    def emptyline(self):
+        pass
+
+    def do_create(self, arg):
+        if len(arg) == 0:
+            print("Please enter a further instruction")
+            return
+        arg_list = arg.split()
+        try:
+            inst = eval(arg_list[0])()
+            print(inst.id)
+            inst.save()
+        except Exception:
+            print("Not found")
+            return
+
+    def do_show(self, arg):
+        BaseModel.storage.reload()
+        if len(arg) == 0:
+            print("Enter a name")
+            return
+        arg_list = arg.split()
+        try:
+            inst = eval(arg_list[0])
+        except Exception:
+            print("Nothiing found")
+            return
+        if len(arg_list) == 1:
+            print("Id not found")
+            return
+        elif len(arg_list) > 1:
+            key = arg_list[0] + "." + arg_list[1]
+            if key in BaseModel.storage.all():
+                print(BaseModel.storage.all()[key])
+            else:
+                print("Nothing found")
+                return
+
+    def do_destroy(self, arg):
+        if len(arg) == 0:
+            print("Further info required")
+            return
+        arg_list = arg.split()
+        try:
+            inst = eval(arg_list[0])
+        except Exception:
+            print("Nothing found")
+            return
+        if len(arg_list) == 1:
+            print("Id not found")
+            return
+        elif len(arg_list) > 1:
+            key = arg_list[0] + "." + arg_list[1]
+            if key in BaseModel.storage.all():
+                BaseModel.storage.all().pop(key)
+                BaseModel.storage.save()
+            else:
+                print("Nothing found")
+                return
 
 
 if __name__ == '__main__':
