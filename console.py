@@ -30,9 +30,9 @@ class c_c:
 class HBNBCommand(cmd.Cmd):
     """Command console class."""
 
-    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or \
-? to list commands.\n' + c_c.end
-    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
+#    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or \
+# ? to list commands.\n' + c_c.end
+#    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
     prompt = c_c.red + '(hbnb) ' + c_c.end
     file = None
 
@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, arg):
-        """Quit console."""
+        """Quit command to exit the program"""
         return True
 
     def emptyline(self):
