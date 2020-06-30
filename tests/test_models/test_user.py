@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-""" BaseModel unit testing """
+""" User unit testing """
 import unittest
 import pep8
 import json
 from models.base_model import BaseModel
-from datetime import datetime
-import uuid
-import json
+from models.user import User
 
 
-class TestBaseModelRequirements(unittest.TestCase):
+class TestUserRequirements(unittest.TestCase):
     """ Tests base documentation """
 
     @classmethod
@@ -31,20 +29,20 @@ class TestBaseModelRequirements(unittest.TestCase):
     def test_pep8(self):
         """ Test that models/base.py conforms to PEP8 """
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base_model.py'])
+        result = pep8style.check_files(['models/user.py'])
         self.assertEqual(result.total_errors, 0, "Fix PEP8 Style")
 
     def test_pep8_base(self):
         """ Test the test file xD """
         pep8style = pep8.StyleGuide(quiet=True)
-        path_f = 'tests/test_models/test_base_model.py'
-        result = pep8style.check_files([path_f])
+        path_file = 'tests/test_models/test_user.py'
+        result = pep8style.check_files([path_file])
         self.assertEqual(result.total_errors, 0, "Fix PEP8 Style")
 
     def test_docstring(self):
         """test if docstring"""
-        self.assertIsNotNone(BaseModel.__doc__)
+        self.assertIsNotNone(User.__doc__)
 
     def test_docmodule(self):
         """ Tests module """
-        self.assertTrue(len(BaseModel.__doc__) >= 1)
+        self.assertTrue(len(User.__doc__) >= 1)
