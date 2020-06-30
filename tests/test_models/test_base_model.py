@@ -37,8 +37,9 @@ class TestBaseModelRequirements(unittest.TestCase):
     def test_pep8_base(self):
         """ Test the test file xD """
         pep8style = pep8.StyleGuide(quiet=True)
-        path_f = 'tests/test_models/test_base_model.py'
-        result = pep8style.check_files([path_f])
+        # path_f = 'tests/test_models/test_base_model.py'
+        result = pep8style.check_files(['tests/test_models/\
+test_base_model.py'])
         self.assertEqual(result.total_errors, 0, "Fix PEP8 Style")
 
     def test_docstring(self):
