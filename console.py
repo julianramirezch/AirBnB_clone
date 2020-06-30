@@ -4,6 +4,7 @@ import cmd
 import sys
 import json
 import sys
+import models
 from models.base_model import BaseModel
 from models import storage
 from models.amenity import Amenity
