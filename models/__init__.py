@@ -1,3 +1,4 @@
+"""Read doc from model."""
 from .engine.file_storage import FileStorage
 from .base_model import BaseModel
 
