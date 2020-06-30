@@ -2,7 +2,7 @@
 """Console command."""
 import cmd
 import sys
-import models
+from models import *
 
 
 class c_c:
@@ -20,19 +20,10 @@ class c_c:
 class HBNBCommand(cmd.Cmd):
     """Command console class."""
 
-    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or ? to list commands.\n' + c_c.end
+    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or \
+? to list commands.\n' + c_c.end
     prompt = c_c.red + '(hbnh) ' + c_c.end
     file = None
-
-    def do_help(self, arg):
-        """Help command."""
-        if arg == 'quit' or arg == 'EOF':
-            print(c_c.yellow + "Quit command to exit the program" + c_c.end)
-        else:
-            print("""Documented commands (type help <topic>):
-                ========================================
-                EOF  help  quit
-                """)
 
     def do_EOF(self, arg):
         """Quit console."""
