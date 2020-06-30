@@ -36,8 +36,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = c_c.red + '(hbnb) ' + c_c.end
     file = None
 
-    def do_EOF(self, arg):
-        """Quit console."""
+    def do_EOF(self, line):
+        """Quit command to exit the program"""
         return True
 
     def do_quit(self, arg):
