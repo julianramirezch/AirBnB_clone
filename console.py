@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Console command."""
 import cmd
 import sys
 import models
@@ -15,14 +16,18 @@ class c_c:
     red = '\033[91m'
     end = '\033[0m'
 
+
 class HBNBCommand(cmd.Cmd):
+    """Command console class."""
+
     intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or ? to list commands.\n' + c_c.end
     prompt = c_c.red + '(hbnh) ' + c_c.end
     file = None
 
     def do_help(self, arg):
+        """Help command."""
         if arg == 'quit' or arg == 'EOF':
-                print(c_c.yellow + "Quit command to exit the program" + c_c.end)
+            print(c_c.yellow + "Quit command to exit the program" + c_c.end)
         else:
             print("""Documented commands (type help <topic>):
                 ========================================
@@ -30,15 +35,19 @@ class HBNBCommand(cmd.Cmd):
                 """)
 
     def do_EOF(self, arg):
+        """Quit console."""
         return True
 
     def do_quit(self, arg):
+        """Quit console."""
         return True
-    
+
     def emptyline(self):
+        """Pass next line."""
         pass
 
     def do_create(self, arg):
+        """Create object."""
         if len(arg) == 0:
             print("Please enter a further instruction")
             return
@@ -52,6 +61,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, arg):
+        """Show object."""
         models.storage.reload()
         if len(arg) == 0:
             print("Enter a name")
@@ -67,13 +77,14 @@ class HBNBCommand(cmd.Cmd):
             return
         elif len(arg_list) > 1:
             key = arg_list[0] + "." + arg_list[1]
-            if key in BaseModel.storage.all():
-                print(BaseModel.storage.all()[key])
+            if key in models.storage.all():
+                print(models.storage.all()[key])
             else:
                 print("Nothing found")
                 return
 
     def do_destroy(self, arg):
+        """Destroy object."""
         if len(arg) == 0:
             print("Further info required")
             return
@@ -94,6 +105,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("Nothing found")
                 return
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
