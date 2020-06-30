@@ -32,7 +32,8 @@ class HBNBCommand(cmd.Cmd):
 
     intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or \
 ? to list commands.\n' + c_c.end
-    prompt = c_c.red + '(hbnh) ' + c_c.end
+    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
+    prompt = c_c.red + '(hbnb) ' + c_c.end
     file = None
 
     def do_EOF(self, arg):
