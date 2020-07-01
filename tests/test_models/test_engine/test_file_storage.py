@@ -1,23 +1,25 @@
 #!/usr/bin/python3
-"""Module Test Case for FileStorage"""
-import unittest
-from datetime import datetime
-import re
-import os
-import pep8
-import models
-from models.engine.file_storage import FileStorage
+"""File Storage Unit Tests"""
+
+
 from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
+from models.engine.file_storage import FileStorage
 from models.amenity import Amenity
+from models.city import City
+from datetime import datetime
 from models.place import Place
 from models.review import Review
+from models.state import State
+from models.user import User
+import models
+import os
+import sys
+import pep8
+import unittest
 
 
 class TestFileStorage(unittest.TestCase):
-    """FileStorage Test Class"""
+    """Test cases for class FileStorage"""
 
     def test_pep8(self):
         """Pep8 Test"""
