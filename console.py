@@ -158,6 +158,22 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+    def do_count(self, argv):
+        """ Count Instances """
+        ins_dic = models.storage.all()
+        cls_list = []
+        for key, value in ins_dic.items():
+            cls_list.append(value.to_dict()['__class__'])
+        print(cls_list.count(argv))
+
+    def precmd(self, line):
+        """ Return value is used as the command"""
+        if '.' in line and '(' in line and ')' in line:
+            line_split = line.split('.')
+            second_split = line_split[1].split('(')
+            line = '{} {}'.format(second_split[0], line_split[0])
+        return line
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
