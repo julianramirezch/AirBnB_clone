@@ -20,32 +20,6 @@ import unittest
 
 class TestFileStorage(unittest.TestCase):
     """Test cases for class FileStorage"""
-    @classmethod
-    def setUpClass(cls):
-        cls.b1 = Place()
-        cls.b1.city_id = "Velez"
-        cls.b1.state_id = "Santander"
-        cls.b1.number_rooms = 7
-        cls.b1.description = "Bocadillo City"
-
-    @classmethod
-    def tearDownClass(cls):
-        del cls.b1
-
-    def tearDown(self):
-        """Removes the JSON file after test cases run """
-        if os.path.exists(self.file_path):
-            os.remove(self.file_path)
-        if os.path.exists('tester'):
-            os.rename('tester', self.file_path)
-
-    def test_docstring(self):
-        """Checks if docstring exist"""
-        self.assertTrue(len(FileStorage.__doc__) > 1)
-        self.assertTrue(len(FileStorage.all.__doc__) > 1)
-        self.assertTrue(len(FileStorage.new.__doc__) > 1)
-        self.assertTrue(len(FileStorage.save.__doc__) > 1)
-        self.assertTrue(len(FileStorage.reload.__doc__) > 1)
 
     def test_pep8(self):
         """Pep8 Test"""
@@ -60,6 +34,13 @@ class TestFileStorage(unittest.TestCase):
         self.file_path = models.storage._FileStorage__file_path
         if os.path.exists(self.file_path):
             os.rename(self.file_path, 'tester')
+    
+    def tearDown(self):
+        """Removes the JSON file after test cases run """
+        if os.path.exists(self.file_path):
+            os.remove(self.file_path)
+        if os.path.exists('tester'):
+            os.rename('tester', self.file_path)
 
     def test_instantiation(self):
         """Tests for proper instantiation"""
