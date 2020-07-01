@@ -21,40 +21,30 @@ class TestFileStorage(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.p1 = Place()
-        cls.p1.city_id = "Richmond"
-        cls.p1.state_id = "VA"
-        cls.p1.number_rooms = 8
-        cls.p1.description = "awesome"
+        cls.p1.city_id = "Velez"
+        cls.p1.state_id = "Santander"
+        cls.p1.number_rooms = 7
+        cls.p1.description = "Bocadillo City"
 
     @classmethod
     def tearDownClass(cls):
         del cls.p1
 
-    def tearDown(self):
-        """TearDown for each method in TestFileStorage class"""
-        models.storage.delete_obj()
-        if os.path.exists('file.json'):
-            os.remove('file.json')
-
-    def test_style_check(self):
-        """
-        Tests pep8 style
-        """
+    def test_style(self):
+        """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def test_fs_instance(self):
-        """FileStorage class save checks, reload checks"""
+    def test_functions(self):
+        """Test save and reload """
         b1 = BaseModel()
         models.storage.save()
         self.assertEqual(os.path.exists('file.json'), True)
-
-        models.storage.delete_obj()
         models.storage.reload()
 
-    def test_errs(self):
-        """Test most mal usage of FileStorage methods"""
+    def test_errors(self):
+        """Test Errors"""
         b1 = BaseModel()
         with self.assertRaises(AttributeError):
             FileStorage.__objects
