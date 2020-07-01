@@ -69,6 +69,17 @@ class TestFileStorage(unittest.TestCase):
         file_exist = os.path.exists(self.file_path)
         self.assertTrue(file_exist)
 
+    def test_new(self):
+        """Tests the new method"""
+        insta_storage = FileStorage()
+        insta_dict = insta_storage.all()
+        B1 = User()
+        B1.id = '972'
+        B1.name = "B1"
+        insta_storage.new(B1)
+        key = type(B1).__name__ + '.' + B1.id
+        self.assertIsNotNone(insta_dict[key])
+
     def test_reload(self):
         """Tests for the reload method"""
         insta_storage = FileStorage()
