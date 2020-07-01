@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Base unittesting '''
+""" Base unittesting """
 
 import unittest
 import pep8
@@ -11,7 +11,7 @@ import os
 
 
 class TestBasedocu(unittest.TestCase):
-    ''' test Base Documentation '''
+    """ test Base Documentation """
 
     def test_pep8(self):
         """ Test that models/base_model.py conforms to PEP8 """
@@ -39,15 +39,15 @@ class TestBaseFunctions(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        '''
+        """
         is called with the class as the only argument
         and must be decorated as a classmethod():
-        '''
+        """
         pass
 
     @classmethod
     def tearDown(cls):
-        ''' After tests, remove json file '''
+        """ After tests, remove json file """
         try:
             remove("file.json")
         except Exception:
@@ -59,13 +59,13 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertIsInstance(b1, BaseModel)
 
     def test_uniq_id(self):
-        ''' check for id creation '''
+        """ check for id creation """
         b1 = BaseModel()
         b2 = BaseModel()
         self.assertFalse(b1.id == b2.id)
 
     def test_typos(self):
-        ''' check for id creation '''
+        """ check for id creation """
         b1 = BaseModel()
         b1.name = "Holberton"
         b1.my_number = 89
@@ -77,7 +77,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertIsInstance(b1.__class__(), BaseModel)
 
     def test_kwargs_constructor(self):
-        ''' Create object passing Kwargs '''
+        """ Create object passing Kwargs """
         my_dict = {
                     'id': 'cc9909cf-a909-9b90-9999-999fd99ca9a9',
                     'created_at': '2025-06-28T14:00:00.000001',
@@ -116,7 +116,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(hasattr(obj, "updated_at"))
 
     def test_str_method(self):
-        ''' Test str method '''
+        """ Test str method """
         obj = BaseModel()
         out = "[{}] ({}) {}\n".format(type(obj).__name__, obj.id, obj.__dict__)
 
@@ -124,7 +124,7 @@ class TestBaseFunctions(unittest.TestCase):
             self.assert_stdout(out)
 
     def test_save_method(self):
-        ''' Test save method '''
+        """ Test save method """
         obj = BaseModel()
         updated = obj.updated_at
         obj.save()
