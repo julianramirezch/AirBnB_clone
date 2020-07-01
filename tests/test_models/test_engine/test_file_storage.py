@@ -33,14 +33,14 @@ class TestFileStorage(unittest.TestCase):
         """
         self.file_path = models.storage._FileStorage__file_path
         if os.path.exists(self.file_path):
-            os.rename(self.file_path, 'tester')
-    
+            os.rename(self.file_path, 'file.json')
+
     def tearDown(self):
         """Removes the JSON file after test cases run """
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
-        if os.path.exists('tester'):
-            os.rename('tester', self.file_path)
+        if os.path.exists('file.json'):
+            os.rename('file.json', self.file_path)
 
     def test_instantiation(self):
         """Tests for proper instantiation"""
@@ -67,7 +67,7 @@ class TestFileStorage(unittest.TestCase):
         insta_storage = FileStorage()
         insta_dict = insta_storage.all()
         B1 = User()
-        B1.id = '972'
+        B1.id = '777'
         B1.name = "B1"
         insta_storage.new(B1)
         key = type(B1).__name__ + '.' + B1.id
