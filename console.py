@@ -169,9 +169,14 @@ class HBNBCommand(cmd.Cmd):
     def precmd(self, line):
         """ Return value is used as the command"""
         if '.' in line and '(' in line and ')' in line:
-            line_split = line.split('.')
-            second_split = line_split[1].split('(')
-            line = '{} {}'.format(second_split[0], line_split[0])
+            l_split = line.split('.')
+            s_split = l_split[1].split('(')
+            t_split = s_split[1].split(')')
+            f_split = t_split[0].split("\"")
+            if len(f_split) == 3:
+                line = '{} {} {}'.format(s_split[0], l_split[0], f_split[1])
+            else:
+                line = '{} {}'.format(s_split[0], l_split[0])
         return line
 
 
