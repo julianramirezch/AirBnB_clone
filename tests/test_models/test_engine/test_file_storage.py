@@ -94,6 +94,20 @@ class TestFileStorage(unittest.TestCase):
                 self.assertEqual(item, "{}")
         self.assertIs(insta_storage.reload(), None)
 
+    def test_errors(self):
+        """Test most mal usage of FileStorage methods"""
+        b1 = BaseModel()
+        with self.assertRaises(AttributeError):
+            FileStorage.__objects
+            FileStorage.__File_path
+
+        with self.assertRaises(TypeError):
+            models.storage.new()
+            models.storage.new(self, b1)
+            models.save(b1)
+            models.reload(b1)
+            models.all(b1)
+
 
 if __name__ == '__main__':
     unittest.main()
