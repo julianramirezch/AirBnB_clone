@@ -45,10 +45,9 @@ class HBNBCommand(cmd.Cmd):
             return
         argv_list = argv.split()
         try:
-            print(argv_list[0])
-            new = eval(argv_list[0])()
-            new.save()
+            new = self.my_dict[argv]()
             print(new.id)
+            new.save()
         except Exception:
             print("** class doesn't exist **")
             return
