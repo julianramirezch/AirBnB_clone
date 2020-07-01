@@ -5,6 +5,7 @@ import sys
 import json
 import sys
 import models
+import shlex
 from models.base_model import BaseModel
 from models import storage
 from models.amenity import Amenity
@@ -30,9 +31,12 @@ from models.user import User
 class HBNBCommand(cmd.Cmd):
     """Command console class."""
 
-#    intro = c_c.magenta + 'Welcome to \'hbnb\'. Type help or \
+    my_dict = {'BaseModel': BaseModel, 'User': User, 'City': City,
+               'Place': Place, 'Amenity': Amenity, 'State': State,
+               'Review': Review}
+#    intro = 'Welcome to \'hbnb\'. Type help or \
 # ? to list commands.\n' + c_c.end
-#    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
+    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
 #    prompt = c_c.red + '(hbnb) ' + c_c.end
     prompt = '(hbnb) '
     file = None
@@ -41,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         return True
 
-    def do_quit(self, arg):
+    def do_quit(self, argv):
         """Quit command to exit the program"""
         return True
 
@@ -49,65 +53,127 @@ class HBNBCommand(cmd.Cmd):
         """Pass next line."""
         pass
 
-    def do_create(self, arg):
+    def do_create(self, argv):
         """Create object."""
-        if len(arg) == 0:
+        if not argv:
             print("** class name missing **")
             return
-        arg_list = arg.split()
+        argv_list = argv.split()
         try:
-            inst = eval(arg_list[0])()
-            print(inst.id)
-            inst.save()
+            print(argv_list[0])
+            new = eval(argv_list[0])()
+            new.save()
+            print(new.id)
         except Exception:
             print("** class doesn't exist **")
             return
 
-    def do_show(self, arg):
+    def do_show(self, argv):
         """Show object."""
         models.storage.reload()
-        if len(arg) == 0:
+        if not argv:
             print("** class name missing **")
             return
-        arg_list = arg.split()
-        try:
-            inst = eval(arg_list[0])
-        except Exception:
-            print("** class doesn't exist **")
-            return
-        if len(arg_list) == 1:
-            print("** instance id missing **")
-            return
-        elif len(arg_list) > 1:
-            key = arg_list[0] + "." + arg_list[1]
-            if key in models.storage.all():
-                print(models.storage.all()[key])
+        argv_list = argv.split()
+        if argv and len(argv_list) == 2:
+            if argv_list[0] in self.my_dict.keys():
+                test = False
+                for key, value in storage.all().items():
+                    if key == argv_list[0] + '.' + argv_list[1]:
+                        test = True
+                        print(value)
+                        break
+                if test is not True:
+                    print('** no instance found **')
             else:
-                print("** no instance found **")
-                return
+                print('** class doesn\'t exist **')
+        elif argv and len(argv_list) == 1:
+            if argv_list[0] in self.my_dict.keys():
+                print('** instance id missing **')
+            else:
+                print('** class doesn\'t exist **')
+        elif len(argv_list) < 1:
+            print('** class name missing **')
 
-    def do_destroy(self, arg):
+    def do_destroy(self, argv):
         """Destroy object."""
-        if len(arg) == 0:
+        if not argv:
             print("** class name missing **")
             return
-        arg_list = arg.split()
+        argv_list = argv.split()
         try:
-            inst = eval(arg_list[0])
+            y = eval(argv_list[0])
         except Exception:
             print("** class doesn't exist **")
             return
-        if len(arg_list) == 1:
+        if len(argv_list) == 1:
             print("** instance id missing **")
             return
-        elif len(arg_list) > 1:
-            key = arg_list[0] + "." + arg_list[1]
+        elif len(argv_list) > 1:
+            key = argv_list[0] + "." + argv_list[1]
             if key in models.storage.all():
                 models.storage.all().pop(key)
                 models.storage.save()
             else:
                 print("** no instance found **")
                 return
+
+    def do_all(self, argv):
+        """ Show all."""
+        models.storage.reload()
+        if len(argv) < 1:
+            va_list = []
+            for value in models.storage.all().values():
+                va_list.append(str(value))
+            if not va_list:
+                return
+            print(va_list)
+        else:
+            tok = argv.split(" ")
+            if tok[0] not in self.my_dict.keys():
+                print("** class doesn't exist **")
+            elif tok[0] in self.my_dict.keys():
+                va_list = []
+                for value in models.storage.all().values():
+                    if tok[0] in value.__class__.__name__:
+                        va_list.append(str(value))
+                if not va_list:
+                    return
+                print(va_list)
+
+    def do_update(self, argv):
+        """ Update Instance."""
+        models.storage.reload()
+        if len(argv) == 0:
+            print("** class name missing **")
+            return
+        else:
+            ar_sp = shlex.split(argv)
+            if ar_sp[0] not in self.my_dict.keys():
+                print("** class doesn't exist **")
+                return
+            if ar_sp[0] in self.my_dict.keys() and len(ar_sp) < 2:
+                print("** instance id missing **")
+                return
+            temp = ar_sp[0] + '.' + ar_sp[1]
+            if temp in models.storage.all():
+                new = models.storage.all()[temp].__dict__
+                if len(ar_sp) < 3:
+                    print("** attribute name missing **")
+                elif len(ar_sp) < 4:
+                    print("** value missing **")
+                else:
+                    i = ar_sp[2]
+                    try:
+                        attr = type(new[i])
+                        value = attr(ar_sp[3])
+                    except KeyError:
+                        value = ar_sp[3]
+                    to_update[i] = value
+                    models.storage.save()
+            else:
+                print("** no instance found **")
+    
 
 
 if __name__ == '__main__':
