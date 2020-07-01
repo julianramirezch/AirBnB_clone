@@ -10,7 +10,7 @@ import os
 import pep8
 
 
-class Test_BaseModel(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
     """
     Test class BaseModel
     """
@@ -29,9 +29,7 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(result.total_errors, 0, "fix pep8")
 
     def setUp(self):
-        """
-        Setups test
-        """
+        """Setups test"""
         pass
 
     def test_init_arg(self):
@@ -97,3 +95,7 @@ class Test_BaseModel(unittest.TestCase):
         b1.save()
         b_dict = b1.to_dict()
         self.assertNotEqual(b_dict['created_at'], b_dict['updated_at'])
+
+
+if __name__ == '__main__':
+    unittest.main()
