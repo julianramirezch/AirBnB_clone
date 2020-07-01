@@ -153,7 +153,7 @@ class HBNBCommand(cmd.Cmd):
                         value = attr(ar_sp[3])
                     except KeyError:
                         value = ar_sp[3]
-                    to_update[i] = value
+                    new[i] = value
                     models.storage.save()
             else:
                 print("** no instance found **")
