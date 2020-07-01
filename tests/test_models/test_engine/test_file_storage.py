@@ -1,54 +1,72 @@
 #!/usr/bin/python3
-"""This is a class FileStorage"""
-import json
+"""Module Test Case for FileStorage"""
+import unittest
+from datetime import datetime
+import re
+import os
+import pep8
+import models
+from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models.user import User
-from models.place import Place
-from models.city import City
 from models.state import State
-from models.review import Review
+from models.city import City
 from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
-class FileStorage:
-    """class FileStorage"""
-    __file_path = "file.json"
-    __objects = {}
+class TestFileStorage(unittest.TestCase):
+    """FileStorage Test Class"""
+    @classmethod
+    def setUpClass(cls):
+        cls.p1 = Place()
+        cls.p1.city_id = "Richmond"
+        cls.p1.state_id = "VA"
+        cls.p1.number_rooms = 8
+        cls.p1.description = "awesome"
 
-    def all(self):
-        """returns the dictionary __objects
-        Returns:
-            __object dictionary
+    @classmethod
+    def tearDownClass(cls):
+        del cls.p1
+
+    def tearDown(self):
+        """TearDown for each method in TestFileStorage class"""
+        models.storage.delete_obj()
+        if os.path.exists('file.json'):
+            os.remove('file.json')
+
+    def test_style_check(self):
         """
-        return FileStorage.__objects
-
-    def new(self, obj):
-        """sets in __objects the obj with key <obj class name>.id
-        Args:
-            obj (obj): object
+        Tests pep8 style
         """
-        FileStorage.__objects[type(obj).__name__ + "." + obj.id] = obj
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def save(self):
-        """serializes __objects to the JSON file (path: __file_path)"""
-        a_dict = {}
-        for key in FileStorage.__objects:
-            a_dict[key] = FileStorage.__objects[key].to_dict()
-        with open(FileStorage.__file_path, mode="w",
-                  encoding="utf-8") as a_file:
-            json.dump(a_dict, a_file)
+    def test_fs_instance(self):
+        """FileStorage class save checks, reload checks"""
+        b1 = BaseModel()
+        models.storage.save()
+        self.assertEqual(os.path.exists('file.json'), True)
 
-    def reload(self):
-        """deserializes the JSON file to __objects"""
-        try:
-            with open(FileStorage.__file_path, mode="r",
-                      encoding="utf-8") as a_file:
-                a_dict = json.load(a_file)
-            for key, value in a_dict.items():
-                FileStorage.__objects[key] = eval(value['__class__'])(**value)
-        except FileNotFoundError:
-            pass
+        models.storage.delete_obj()
+        models.storage.reload()
 
-    def delete_obj(self):
-        """Deletes everything"""
-        FileStorage.__objects.clear()
+    def test_errs(self):
+        """Test most mal usage of FileStorage methods"""
+        b1 = BaseModel()
+        with self.assertRaises(AttributeError):
+            FileStorage.__objects
+            FileStorage.__File_path
+
+        with self.assertRaises(TypeError):
+            models.storage.new()
+            models.storage.new(self, b1)
+            models.save(b1)
+            models.reload(b1)
+            models.all(b1)
+
+
+if __name__ == '__main__':
+    unittest.main()
