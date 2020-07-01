@@ -82,3 +82,6 @@ class TestFileStorage(unittest.TestCase):
             for item in f:
                 self.assertEqual(item, "{}")
         self.assertIs(insta_storage.reload(), None)
+
+if __name__ == '__main__':
+    unittest.main()
