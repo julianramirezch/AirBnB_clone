@@ -16,28 +16,13 @@ from models.state import State
 from models.user import User
 
 
-# class c_c:
-#    """Color class."""
-
-#    lightgray = '\033[37m'
-#    magenta = '\033[35m'
-#    blue = '\033[94m'
-#    green = '\033[92m'
-#    yellow = '\033[93m'
-#    red = '\033[91m'
-#    end = '\033[0m'
-
-
 class HBNBCommand(cmd.Cmd):
     """Command console class."""
 
     my_dict = {'BaseModel': BaseModel, 'User': User, 'City': City,
                'Place': Place, 'Amenity': Amenity, 'State': State,
                'Review': Review}
-#    intro = 'Welcome to \'hbnb\'. Type help or \
-# ? to list commands.\n' + c_c.end
-    intro = 'Welcome to hbnb. Type help or ? to list commands.\n'
-#    prompt = c_c.red + '(hbnb) ' + c_c.end
+
     prompt = '(hbnb) '
     file = None
 
@@ -173,7 +158,6 @@ class HBNBCommand(cmd.Cmd):
                     models.storage.save()
             else:
                 print("** no instance found **")
-    
 
 
 if __name__ == '__main__':
