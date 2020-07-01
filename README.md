@@ -1,4 +1,4 @@
- ![Image of holb](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200701%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200701T212017Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3bf70b86eafd72bdf5325124de421ae99e8036478adc39b37a65d240a0e512ff)
+ ![Image of holb](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrmT8ZjHieRK4g1OYsrbe0wPAVj3mg83pSKKmw4hc7YnYwTbo&s)
 
 ---
 # HBnB the Console!
