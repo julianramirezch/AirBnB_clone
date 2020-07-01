@@ -30,21 +30,27 @@ class TestFileStorage(unittest.TestCase):
     def tearDownClass(cls):
         del cls.p1
 
-    def test_style(self):
+    def tearDown(self):
+        """TearDown for each method in TestFileStorage class"""
+        if os.path.exists('file.json'):
+            os.remove('file.json')
+
+    def test_pep8(self):
         """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def test_functions(self):
+    def test_fs_instance(self):
         """Test save and reload """
         b1 = BaseModel()
         models.storage.save()
         self.assertEqual(os.path.exists('file.json'), True)
+
         models.storage.reload()
 
     def test_errors(self):
-        """Test Errors"""
+        """Test errors"""
         b1 = BaseModel()
         with self.assertRaises(AttributeError):
             FileStorage.__objects
