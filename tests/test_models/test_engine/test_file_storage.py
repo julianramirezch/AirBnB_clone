@@ -1,68 +1,84 @@
 #!/usr/bin/python3
-"""Module Test Case for FileStorage"""
-import unittest
-from datetime import datetime
-import re
-import os
-import pep8
-import models
-from models.engine.file_storage import FileStorage
+"""File Storage Unit Tests"""
+
+
 from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
+from models.engine.file_storage import FileStorage
 from models.amenity import Amenity
+from models.city import City
+from datetime import datetime
 from models.place import Place
 from models.review import Review
+from models.state import State
+from models.user import User
+import models
+import os
+import sys
+import pep8
+import unittest
 
 
 class TestFileStorage(unittest.TestCase):
-    """FileStorage Test Class"""
-    @classmethod
-    def setUpClass(cls):
-        cls.p1 = Place()
-        cls.p1.city_id = "Velez"
-        cls.p1.state_id = "Santander"
-        cls.p1.number_rooms = 7
-        cls.p1.description = "Bocadillo City"
-
-    @classmethod
-    def tearDownClass(cls):
-        del cls.p1
-
-    def tearDown(self):
-        """TearDown for each method in TestFileStorage class"""
-        if os.path.exists('file.json'):
-            os.remove('file.json')
+    """Test cases for class FileStorage"""
+    def test_docstring(self):
+        """Checks if docstring exist"""
+        self.assertTrue(len(FileStorage.__doc__) > 1)
+        self.assertTrue(len(FileStorage.all.__doc__) > 1)
+        self.assertTrue(len(FileStorage.new.__doc__) > 1)
+        self.assertTrue(len(FileStorage.save.__doc__) > 1)
+        self.assertTrue(len(FileStorage.reload.__doc__) > 1)
 
     def test_pep8(self):
-        """Tests pep8 style"""
+        """Pep8 Test"""
         style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/engine/file_storage.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
+        result = style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(result.total_errors, 0, "Fix pep8")
 
-    def test_fs_instance(self):
-        """Test save and reload """
+    def setUp(self):
+        """Sets up the testing environment to not change the
+        previous file storage
+        """
+        self.file_path = models.storage._FileStorage__file_path
+        if os.path.exists(self.file_path):
+            os.rename(self.file_path, 'tester')
+
+    def tearDown(self):
+        """Removes the JSON file after test cases run """
+        if os.path.exists(self.file_path):
+            os.remove(self.file_path)
+        if os.path.exists('tester'):
+            os.rename('tester', self.file_path)
+
+    def test_instantiation(self):
+        """Tests for proper instantiation"""
+        insta_storage = FileStorage()
+        self.assertIsInstance(insta_storage, FileStorage)
+
+    def test_all(self):
+        """Tests all """
+        insta_storage = FileStorage()
+        insta_dict = insta_storage.all()
+        self.assertIsNotNone(insta_dict)
+        self.assertEqual(type(insta_dict), dict)
+
+    def test_save(self):
+        """Tests save """
         b1 = BaseModel()
+        models.storage.new(b1)
         models.storage.save()
-        self.assertEqual(os.path.exists('file.json'), True)
+        file_exist = os.path.exists(self.file_path)
+        self.assertTrue(file_exist)
 
-        models.storage.reload()
-
-    def test_errors(self):
-        """Test errors"""
-        b1 = BaseModel()
-        with self.assertRaises(AttributeError):
-            FileStorage.__objects
-            FileStorage.__File_path
-
-        with self.assertRaises(TypeError):
-            models.storage.new()
-            models.storage.new(self, b1)
-            models.save(b1)
-            models.reload(b1)
-            models.all(b1)
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_reload(self):
+        """Tests for the reload method"""
+        insta_storage = FileStorage()
+        try:
+            os.remove("file.json")
+        except:
+            pass
+        with open("file.json", "w") as f:
+            f.write("{}")
+        with open("file.json", "r") as f:
+            for item in f:
+                self.assertEqual(item, "{}")
+        self.assertIs(insta_storage.reload(), None)
