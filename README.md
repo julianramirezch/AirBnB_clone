@@ -87,18 +87,6 @@ $
     (hbnb) show BaseModel Holberton
     ** no instance found **
 
-### Project files
-
-|:- File      -:|:- Description -: |
-|:------------ | ----------: |
-| AUTHORS     | File names and email of project’s owners|
-Readme.md |Description and examples of project|
-|console.py | command interpreter file 
-|| Class HBNBcommand - console and commands |
-| _free_data.c  |Frees data allocated |
-|| _free - frees all data|
-|| free_env - frees enviroment variable |
-
 
 
 ### Tasks:
