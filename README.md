@@ -126,15 +126,6 @@ Readme.md |Description and examples of project|
 
 
 
-
-### Manual page
-
-You can find all the information on our man page
-
-    $ ./man_1_simple
-
-
-
 >Flow chart an be found at this address:
 
 >>https://app.diagrams.net/#G1LC_F4Ss5qHXNA5NKIuUAo5PHcCVRhmeV
