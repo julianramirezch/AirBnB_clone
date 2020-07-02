@@ -91,7 +91,7 @@ $
 | AUTHORS     | File names and email of project’s owners|
 Readme.md |Description and examples of project|
 |console.py | command interpreter file 
-|| _dupenv - duplicates enviroment variables |
+|| Class HBNBcommand - console and commands |
 |_execute.c | Finds and executes commands |
 | | find_command – finds function from command line |
 || _executes: sorts if builtin or PATH |
