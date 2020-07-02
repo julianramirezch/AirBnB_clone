@@ -54,7 +54,7 @@ $ echo "help" | ./console.py
     ========================================
     EOF  all  count  create  destroy  help  quit  show  update
 
-(hbnb)
+    (hbnb)
 
     • interactive mode
 
