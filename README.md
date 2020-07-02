@@ -26,7 +26,7 @@ Description
     Interactive mode:
 >$ ./console.py
 
-    $ [write here your commands]
+    $  (hbnb) [write here your commands]
 
 >Non-interactive mode
 
