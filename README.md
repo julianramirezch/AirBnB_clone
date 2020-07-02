@@ -1,7 +1,9 @@
  ![Image of holb](https://camo.githubusercontent.com/8d76bb2b9f2eeeb22ba9236805e758b58eb7fdc4/68747470733a2f2f696d6775722e636f6d2f4f696c457358562e706e67)
 
+<p align="center"> 
+    <b>HBnb the Console!<b>
+
 ---
-# HBnB the Console!
 
 ## AirBnB clone, first part, the console
 
