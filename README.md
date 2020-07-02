@@ -100,18 +100,7 @@ Readme.md |Description and examples of project|
 || free_env - frees enviroment variable |
 || free_args - Frees double pointer |
 || free_all - calls all free functions |
-|| free_array - frees arrays |
-| _getenv.c | functions that get enviroment and handle it |
-| | _getenv |
-|| free_PATH - frees PATH variable |
-|| _myenv2 | prints env variable |
-| _launch.c | executes command line |
-| builtins.c | contains builtin functions |
-|| _cd |
-|| _help |
-|| printwd |
-|| myexit |
-| exec_path.c | contains function that reads and executes path|
+
 | get_help.c | aux functions for help builtin|
 || get_help |
 || more_help |
