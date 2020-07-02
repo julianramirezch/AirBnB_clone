@@ -49,7 +49,12 @@ Description
 
 $ echo "help" | ./console.py
 
-    $ /home/simple_shell
+    $ (hbnb) 
+    Documented commands (type help <topic>):
+    ========================================
+    EOF  all  count  create  destroy  help  quit  show  update
+
+(hbnb)
 
     • interactive mode
 
