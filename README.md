@@ -64,10 +64,10 @@ $ echo "help" | ./console.py
      (hbnb) help
 
 >(hbnb)
->Documented commands (type help <topic>):
->========================================
->EOF  all  count  create  destroy  help  quit  show  update
->(hbnb)
+ Documented commands (type help <topic>):
+ ========================================
+ EOF  all  count  create  destroy  help  quit  show  update
+ (hbnb)
 
     (hbnb) quit
 
