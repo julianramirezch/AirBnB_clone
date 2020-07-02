@@ -107,6 +107,6 @@ $
 ----
 [![Twitter Follow](https://img.shields.io/twitter/follow/JulianR_30.svg?style=social&label=Follow)](https://twitter.com/JulianR_30)
 
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/sto_stat.svg?style=social&label=Follow%20%40cloudposse)](https://twitter.com/sto_stat)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/sto_stat.svg?style=social&label=Follow%20%40sto_stat)](https://twitter.com/sto_stat)
 
 2020
