@@ -24,13 +24,13 @@ Description
 >There are two modes
     
     Interactive mode:
->$ ./a.out
+>$ ./console.py
 
     $ [write here your commands]
 
 >Non-interactive mode
 
-    $ echo "[put_commands and_arguments]" | ./a.out
+    $ echo "[put_commands and_arguments]" | ./console.py
 
 ### Built-ins
 
