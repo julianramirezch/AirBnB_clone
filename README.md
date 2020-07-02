@@ -14,7 +14,7 @@ Description
 ### Program download
 >To download this program, you must go to this github repo and download it:
 
-    https://github.com/matcls/simple_shell
+    https://github.com/julianramirezch/AirBnB_clone/blob/master/README.md
 
 >Once in your local repo, you can complile it with the following command:
 
