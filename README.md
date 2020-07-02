@@ -9,8 +9,7 @@
 
 Description
 
->In this project, we will create a simple shell which will execute basic functions, emulating the same processes done by sh. We started off by creating a flowchart and defining the main skelleton of our project, setting goals and managing the entire project through the scrum metodology.We researched many new concepts, starting from the input of commands through the command interpreter, to the parents and child processes always taking care of the memory management to avoid any leak.
-Finally the project has been merged and fully functioning.
+>We will create a storage system, creating objects through execution and saving them to a Js. We will manipulate two types of storage, file and DataBase, for this projecy we will focus on file.
 ---
 ### Program download
 >To download this program, you must go to this github repo and download it:
