@@ -94,12 +94,22 @@ $
 | Name | Description                    |
 | ------------- | ------------------------------ |
 | `__init__.py`      |  With this file, the folder will become a Python module   |
-| `models/base.py`      |    Class Base |
-| `models/rectangle.py`   | Class Rectangle   |
-| `models/square.py`      | Class Square|
+| `models/base_model`      | Class Base |
+| `models/engine/file_storage`      | Class Filestorage |
+| `models/amenity.py`   | Class Amenity   |
+| `models/city.py`      | Class City|
+| `models/place.py`      | Class Place|
+| `models/review.py`      | Class Review|
+| `models/state.py`      | Class State|
+| `models/user.py`      | Class User|
 | `tests/test_models/test_base.py`      | Test Class Base |
-| `tests/test_models/test_rectangle.py`      |  Test Class Rectangle   |
-| `tests/test_models/test_square.py`      |  Test Class Square   |
+| `tests/test_models/test_engine/test_file_storage.py`      |  Test Class FileStorage   |
+| `tests/test_models/test_amenity.py`      |  Test Class Amenity   |
+| `tests/test_models/test_place.py`      |  Test Class Place   |
+| `tests/test_models/test_city.py`      |  Test Class City   |
+| `tests/test_models/test_state.py`      |  Test Class State   |
+| `tests/test_models/test_user.py`      |  Test Class User   |
+| `tests/test_models/test_review.py`      |  Test Class Review    |
 
 ## Author: 
 ### Julian Ramirez <julianramirezch1@gmail.com>
