@@ -56,15 +56,21 @@ $ echo "help" | ./console.py
 
     (hbnb)
 
+
     • interactive mode
 
->$ ./a.out
+>$ ./console.py
 
-    ./$ /bin/ls
+     (hbnb) help
 
->simple_shell.c
+>(hbnb) 
+ Documented commands (type help <topic>):
+ ========================================
+ EOF  all  count  create  destroy  help  quit  show  update
 
-./$ exit
+ (hbnb)
+
+    (hbnb) quit
 
 $
 
