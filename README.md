@@ -16,9 +16,9 @@ Description
 
     https://github.com/julianramirezch/AirBnB_clone/blob/master/README.md
 
->Once in your local repo, you can complile it with the following command:
+>Once in your local repo, you can run it from the folder using the following command:
 
-    gcc -Wall -Werror -Wextra -pedantic *.c
+    ./console.py
 
 ### Execution:
 >There are two modes
