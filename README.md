@@ -75,19 +75,15 @@ $ echo "help" | ./console.py
 $
 ### Some error output
 
->$ ./a.out
+>$ ./console.py
 
-    ./$ cd..
+    (hbnb) all MyModel
+    ** class doesn't exist **
+    (hbnb) show BaseModel
+    ** instance id missing **
+    (hbnb) show BaseModel Holberton
+    ** no instance found **
 
->command not found: cd..
-
-    $ ..
-
->$  ..: Permission denied
-
-    2
-
----
 ### Project files
 
 |:- File      -:|:- Description -: |
