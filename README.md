@@ -98,17 +98,6 @@ Readme.md |Description and examples of project|
 | _free_data.c  |Frees data allocated |
 || _free - frees all data|
 || free_env - frees enviroment variable |
-|| free_args - Frees double pointer |
-|| free_all - calls all free functions |
-
-| get_help.c | aux functions for help builtin|
-|| get_help |
-|| more_help |
-| handle_input.c | functions that read and parse the command line|
-|init_data.c | data initialization at start of program |
-| loop_prompt.c | displays prompt |
-| main.c | main function that calls all other functions |
-| shell.h | header |
 
 
 
