@@ -94,9 +94,6 @@ $
 Readme.md |Description and examples of project|
 |console.py | command interpreter file 
 || Class HBNBcommand - console and commands |
-|_execute.c | Finds and executes commands |
-| | find_command – finds function from command line |
-|| _executes: sorts if builtin or PATH |
 | _free_data.c  |Frees data allocated |
 || _free - frees all data|
 || free_env - frees enviroment variable |
