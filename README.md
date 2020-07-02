@@ -1,24 +1,92 @@
-<H1 align="center"> 0x00. AirBnB clone - The console </H1>
+ ![Image of holb](https://camo.githubusercontent.com/8d76bb2b9f2eeeb22ba9236805e758b58eb7fdc4/68747470733a2f2f696d6775722e636f6d2f4f696c457358562e706e67)
 
-<p align="center">
-   <a href="https://www.holbertonschool.com/co"><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200630%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200630T135904Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=2dc9737e8f068224d7615b478b8d05d7dfc36296eacb93837ba5f3747c7eec28" width="170" height="170"/></a>
+---
+# HBnB the Console!
 
-<p align="center"> 
-   <b>Holberton School Bogotá D.C</b>
-                
-----
-<H3> General </H3>
-   
-    How to create a Python package
-    How to create a command interpreter in Python using the cmd module
-    What is Unit testing and how to implement it in a large project
-    How to serialize and deserialize a Class
-    How to write and read a JSON file
-    How to manage datetime
-    What is an UUID
-    What is *args and how to use it
-    What is **kwargs and how to use it
-    How to handle named arguments in a function
+## AirBnB clone, first part, the console
+
+---
+
+Description
+
+>We will create a storage system, creating objects through execution and saving them to a Js. We will manipulate two types of storage, file and DataBase, for this projecy we will focus on file.
+---
+### Program download
+>To download this program, you must go to this github repo and download it:
+
+    https://github.com/julianramirezch/AirBnB_clone/blob/master/README.md
+
+>Once in your local repo, you can run it from the folder using the following command:
+
+    ./console.py
+
+### Execution:
+>There are two modes
+    
+    Interactive mode:
+>$ ./console.py
+
+    $  (hbnb) [write here your commands]
+
+>Non-interactive mode
+
+    $ echo "[put_commands and_arguments]" | ./console.py
+
+### Commands
+
+    • help
+    • EOF
+    • quit
+    • create
+    • show
+    • destroy
+    • all
+    • update
+    • count
+### Examples
+    1. help
+    • non interactive
+
+$ echo "help" | ./console.py
+
+    $ (hbnb) 
+    Documented commands (type help <topic>):
+    ========================================
+    EOF  all  count  create  destroy  help  quit  show  update
+
+    (hbnb)
+
+
+    • interactive mode
+
+>$ ./console.py
+
+     (hbnb) help
+
+>(hbnb)
+
+>Documented commands (type help <topic>):
+ 
+>========================================
+ 
+>EOF  all  count  create  destroy  help  quit  show  update
+
+>(hbnb)
+
+    (hbnb) quit
+
+$
+### Some error output
+
+>$ ./console.py
+
+    (hbnb) all MyModel
+    ** class doesn't exist **
+    (hbnb) show BaseModel
+    ** instance id missing **
+    (hbnb) show BaseModel Holberton
+    ** no instance found **
+
 
 
 ### Tasks:
@@ -38,5 +106,7 @@
 ### Santiago Mendieta <santmendieta@icloud.com>
 ----
 [![Twitter Follow](https://img.shields.io/twitter/follow/JulianR_30.svg?style=social&label=Follow)](https://twitter.com/JulianR_30)
+
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/sto_stat.svg?style=social&label=Follow%20%40sto_stat)](https://twitter.com/sto_stat)
 
 2020

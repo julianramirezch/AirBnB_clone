@@ -167,7 +167,7 @@ class HBNBCommand(cmd.Cmd):
         print(cls_list.count(argv))
 
     def precmd(self, line):
-        """ Return value is used as the command"""
+        """ Return the value that is used as the command"""
         if '.' in line and '(' in line and ')' in line:
             l_split = line.split('.')
             s_split = l_split[1].split('(')
