@@ -173,7 +173,11 @@ class HBNBCommand(cmd.Cmd):
             s_split = l_split[1].split('(')
             t_split = s_split[1].split(')')
             f_split = t_split[0].split("\"")
-            if len(f_split) == 3:
+            if len(f_split) == 7:
+                line = '{} {} {} {} "{}"'.format(s_split[0], l_split[0],
+                                                 f_split[1], f_split[3],
+                                                 f_split[5])
+            elif len(f_split) == 3:
                 line = '{} {} {}'.format(s_split[0], l_split[0], f_split[1])
             else:
                 line = '{} {}'.format(s_split[0], l_split[0])
