@@ -44,10 +44,10 @@ Description
     • update
     • count
 ### Examples
-    1. Absolute path commands
+    1. help
     • non interactive
 
-$ echo "/bin/pwd" | ./a.out
+$ echo "help" | ./console.py
 
     $ /home/simple_shell
 
