@@ -125,13 +125,6 @@ Readme.md |Description and examples of project|
 
 
 
-
->Flow chart an be found at this address:
-
->>https://app.diagrams.net/#G1LC_F4Ss5qHXNA5NKIuUAo5PHcCVRhmeV
-
-
-
    
     How to create a Python package
     How to create a command interpreter in Python using the cmd module
