@@ -32,12 +32,17 @@ Description
 
     $ echo "[put_commands and_arguments]" | ./console.py
 
-### Built-ins
+### Commands
 
-    • env
-    • exit
     • help
-    • pwd
+    • EOF
+    • quit
+    • create
+    • show
+    • destroy
+    • all
+    • update
+    • count
 ### Examples
     1. Absolute path commands
     • non interactive
