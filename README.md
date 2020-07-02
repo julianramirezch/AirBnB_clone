@@ -73,42 +73,6 @@ $ echo "help" | ./console.py
     (hbnb) quit
 
 $
-
-    2. short command
-    • non interactive
-
-$ echo "pwd" | ./a.out
-
->$ /home/simple_shell
-
-    • interactive mode
-
->$ ./a.out
-
-    ./$ echo welcome to shell
-
->welcome to shell
-
-    ./$ exit
-
->$
-
-    3. built-ins
-    • non interactive
-
-$ echo "pwd" | ./a.out
-
-    $ echo "pwd" | ./a.out
-
-    • interactive mode
-
->$ ./a.out
-
-    ./$ cd
->$ pwd
-
-    /home
-
 ### Some error output
 
 >$ ./a.out
