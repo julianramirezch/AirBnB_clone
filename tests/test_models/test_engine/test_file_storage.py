@@ -40,6 +40,11 @@ class TestFileStorage(unittest.TestCase):
         if os.path.exists('file.json'):
             os.rename('file.json', self.file_path)
 
+        def test_objects(self):
+            ''' empty storage '''
+            insta_storage = FileStorage()
+            self.assertEqual(insta_storage.all(), {})
+
     def test_instantiation(self):
         """Tests for proper instantiation"""
         insta_storage = FileStorage()
@@ -85,9 +90,6 @@ class TestFileStorage(unittest.TestCase):
                 self.assertEqual(item, "{}")
         self.assertIs(insta_storage.reload(), None)
 
-    def test_docstrings(self):
-        """ Tests docstrings """
-        self.assertGreater(len(BaseModel.save.__doc__), 1)
 
 if __name__ == '__main__':
     unittest.main()
