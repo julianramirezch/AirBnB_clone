@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """File Storage Unit Tests"""
-
-
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.amenity import Amenity
@@ -87,6 +85,9 @@ class TestFileStorage(unittest.TestCase):
                 self.assertEqual(item, "{}")
         self.assertIs(insta_storage.reload(), None)
 
+    def test_docstrings(self):
+        """ Tests docstrings """
+        self.assertGreater(len(BaseModel.save.__doc__), 1)
 
 if __name__ == '__main__':
     unittest.main()
