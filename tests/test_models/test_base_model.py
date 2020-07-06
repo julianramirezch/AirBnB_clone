@@ -162,3 +162,7 @@ class TestBaseFunctions(unittest.TestCase):
         obj.save()
         exists = os.path.exists('file.json')
         self.assertTrue(exists, True)
+
+    def test_docstrings(self):
+        """ Tests docstrings """
+        self.assertGreater(len(BaseModel.save.__doc__), 1)
