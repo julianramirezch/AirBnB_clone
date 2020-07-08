@@ -16,7 +16,7 @@ Description
 ### Program download
 >To download this program, you must go to this github repo and download it:
 
-    https://github.com/julianramirezch/AirBnB_clone/blob/master/README.md
+    https://github.com/julianramirezch/AirBnB_clone.git
 
 >Once in your local repo, you can run it from the folder using the following command:
 
